@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6794c4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #dce0e0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin-bottom: 20px;
+        }
+        a.add-record {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        a.add-record:hover {
+            background-color: #4cae4c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th, td {
+            background-color: #f2f2f2;
+        }
+        input[type="button"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .edit-button{
+            background-color: #4cae4c;
+        }
+        .edit-button:hover{
+            background-color: #4cae4c;
+        }
+        .delete-button {
+            background-color: #d9534f;
+        }
+        .delete-button:hover {
+            background-color: #c9302c;
+        }
+        .back-buttons {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+        .back-button {
+            display: inline-block;
+            background-color:  #6794c4;
+            color: rgb(28, 26, 26);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: background-color 0.3s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="back-buttons">
+            <a href="/AdminLogin" class="back-button">HOME</a>
+            <a href="/AdminHome" class="back-button">&#x2190;</a>
+        </div>
+        <h2>CATEGORIES</h2>
+        <a href="/addcategory" class="add-record">Add Record</a>
+        <hr>
+        <form method="post">
+            <table>
+                <tr><th>Category ID</th> <th>Category Name</th> <th>Image</th><th>Edit</th> <th>Delete</th></tr>
+                {% for cat in category %}
+                <tr>
+                    <td>{{ cat[0] }}</td>
+                    <td>{{ cat[1] }}</td>
+                    <td><img src="/static/category_image/{{cat[2]}}" height="50" width="50"></td>
+                    <td><a href="/editcategory/{{ cat[0] }}"><input type="button" value="Edit" class="edit-button"></a></td>
+                    <td><a href="/delete/{{ cat[0] }}"><input type="button" value="Delete" class="delete-button"></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+</body>
+</html>

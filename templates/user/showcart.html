@@ -1,0 +1,68 @@
+{%extends "user/homepage.html"%}
+{% block header %}
+{% endblock %}
+
+{% block slideshow %}
+{% endblock %}
+
+
+{%block content%}
+<script type="text/javascript">
+    function increment(qid)
+    {
+        qty=document.getElementById(qid);
+        val=parseInt(qty.value);
+        if(val<5)
+        {
+            val+=1
+        }
+       
+        qty.value=val;
+    }
+    function decrement(qid)
+    {
+        qty=document.getElementById(qid);
+        val=parseInt(qty.value);
+        if(val>1)
+        {
+            val-=1
+        }
+        qty.value=val;
+        
+    }
+
+</script>
+<center>
+   <table class="table" border="1">
+    <tr><th>Clothing Id</th> <th>Clothing Name</th> <th>Price</th> <th>Image</th> <th>Quantity</th> <th>Subtotal</th></tr>
+    {%for item in items%}
+    <form method="post">
+    <tr>
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}} </td>
+        <td>{{item[2]}}</td>
+        <td><img src="{{ url_for('static', filename=item[3]) }}" style="height: 50px; width: 50px;"
+            class="img-rounded"></td>
+        <td>
+        <button type="button" id="decre" class="btn btn-warning" onclick="decrement('qty{{item[0]}}');">-</button>
+        <input type="text" value="{{item[4]}}" id="qty{{item[0]}}" size="1" name="qty" readonly>
+        <button type="button" id="incre" class="btn btn-warning" onclick="increment('qty{{item[0]}}');">+</button>
+       </td>
+        <td>{{item[5]}}</td>
+        <td><button type="submit" class="btn btn-success form-control" value="edit" name="action"><span class="glyphicon glyphicon-pencil"></span>Edit</button></td>
+        <td><button type="submit" class="btn btn-success form-control" value="delete" name="action"><span class="glyphicon glyphicon-trash"></span>Delete</button></td>
+        <td><input type="hidden" name="cart_id" value="{{item[7]}}"></td>
+    </tr>
+   </form>
+    {%endfor%}
+    <tr>
+        <td></td> <td> </td><td></td><td></td><td></td><td>Total= {{total}}</td>
+    </tr>
+    <tr>
+        <td colspan="5" class="text-center"><a href="/makepayment"><button type="button" class="btn btn-success form-control">Proceed to make payment</button></a></td>
+    </tr>
+</table>
+
+
+</center>
+{%endblock%}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        center {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #4cae4c;
+        }
+        .back-buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            margin-right: 55%;
+        }
+        .back-button {
+            background-color: #4098f6;
+            color: rgb(28, 26, 26);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            
+        }
+
+        .back-button:hover a {
+            color: #fff; 
+        }
+        .back-button a {
+            color: rgb(28, 26, 26);
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 18px;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        table th, table td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+        table thead tr {
+            background-color: #007BFF;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        input[type="button"] {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .edit-button {
+            background-color: #4cae4c;
+        }
+        .edit-button:hover {
+            background-color: #398439;
+        }
+        .delete-button {
+            background-color: #d9534f;
+        }
+        .delete-button:hover {
+            background-color: #c9302c;
+        }
+        img {
+            border-radius: 15px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+ 
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Clothing Store</h2>
+        <a href="/AddClothingItem" class="button">Add Record</a>
+        <div class="back-buttons">
+            <a href="/AdminLogin" class="back-button">Home</a>
+            <a href="/AdminHome" class="back-button">&#x2190;</a>
+        </div>
+        <form method="post">
+            <table border="2">
+                <thead>
+                    <tr>
+                        <th>Clothing ID</th>
+                        <th>Clothing Name</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                        <th>Quantity</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cloth in clothing %}
+                    <tr>
+                        <td>{{ cloth[0] }}</td>
+                        <td>{{ cloth[1] }}</td>
+                        <td>{{ cloth[2] }}</td>
+                        <td>{{ cloth[3] }}</td>
+                        <td><img src="{{ url_for('static', filename=cloth[4]) }}" height="100" width="100"></td>
+                        <td>{{cloth[5] }}</td>
+                        <td>{{cloth[6]}}</td>
+                        <td>{{cloth[7]}}</td>
+                        <td><a href="/EditClothingItem/{{ cloth[0] }}"><input type="button" value="Edit" class="edit-button"></a></td>
+                        <td><a href="/DeleteClothingItem/{{ cloth[0] }}"><input type="button" value="Delete" class="delete-button"></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

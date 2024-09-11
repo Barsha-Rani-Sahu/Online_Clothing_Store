@@ -1,0 +1,52 @@
+{%extends "user/homepage.html"%}
+{% block header %}
+{% endblock %}
+
+{% block slideshow %}
+{% endblock %}
+{%block content%}
+<center>
+    <form method="post">
+        <table class="table" border="1">
+            <tr>
+                <td>Clothing Id:</td>
+                <td><input type="text" name="clothingid" value="{{cloth[0]}}" class="form-control" readonly></td>
+            </tr>
+
+            <tr>
+                <td>Clothing Name:</td>
+                <td><input type="text" name="clothingname" value="{{cloth[1]}}" class="form-control" readonly></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="float" name="price" value="{{cloth[2]}}" class="form-control" readonly></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><input type="text" name="description" value="{{cloth[3]}}" class="form-control" readonly></td>
+            </tr>
+            <tr>
+                <td>Image:</td>
+                <td> <img src="{{ url_for('static', filename=cloth[4]) }}" style="height: 200px; width: 250px;"
+                        class="img-rounded"></td>
+
+            </tr>
+            <tr>
+                <td>Select Quantity:</td>
+                <td><select name="qty" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <input type="submit" value="Add To Cart" class="btn btn-success">
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+{%endblock%}

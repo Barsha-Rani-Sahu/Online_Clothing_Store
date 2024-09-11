@@ -1,0 +1,32 @@
+{% extends "user/homepage.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block slideshow %}
+{% endblock %}
+<center>
+    <div class="container">
+      {% block content %}
+      <div class="row">
+        {% for item in cloth %}
+        <div class="col-sm-4 mb-4">
+          <div class="card">
+            <div class="card-header">{{ item[1] }}</div>
+            <div class="card-body text-center">
+              <img src="{{ url_for('static', filename=item[4]) }}" class="img-responsive" style="height: 150px; width: 150px;" alt="Image">
+            </div>
+            <div class="card-footer">Price {{ item[2] }}</div>
+            <br>
+            <a href="/viewdetails/{{item[0]}}"><button>View Details</button></a>
+            <br>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    
+      {% endblock %}
+      
+    </div><br><br>
+  
+  </center>

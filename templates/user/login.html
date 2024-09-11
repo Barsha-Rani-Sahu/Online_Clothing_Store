@@ -1,0 +1,38 @@
+{% extends "user/homepage.html" %}
+
+{% block header %}
+{% endblock %}
+
+{% block slideshow %}
+{% endblock %}
+
+{% block content %}
+<center>
+    <h2>Login</h2>
+    <br>
+    <br>
+    <form method="post">
+        <table class="table table-bordered" style="width: 50%;">
+            <tr>
+                <td>Enter Username</td>
+                <td><input type="text" name="username" class="form-control" required></td>
+            </tr>
+            <tr>
+                <td>Enter Password</td>
+                <td><input type="password" name="password" class="form-control" required></td>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <input type="submit" value="Login" class="btn btn-success">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+
+</center>
+{% endblock %}

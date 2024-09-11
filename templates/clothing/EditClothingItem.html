@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Clothing Item</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin-bottom: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 12px;
+            vertical-align: middle;
+            font-size: 14px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="submit"] {
+            background-color:#4cae4c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            <h2>Edit Clothing Item</h2>
+            <hr>
+            <table>
+                <tr>
+                    <td>Clothing ID:</td>
+                    <td><input type="text" name="clothingid" value="{{ clothing[0] }}" readonly></td>
+                </tr>
+                <tr>
+                    <td>Clothing Name:</td>
+                    <td><input type="text" name="clothingname" value="{{ clothing[1] }}" required></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><input type="number" step="0.01" name="price" value="{{ clothing[2] }}" required></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text" name="description" value="{{ clothing[3] }}" required></td>
+                </tr>
+                <tr>
+                    <td>Image:</td>
+                    <td>
+                        <input type="file" name="image_url" value="{{clothing[4]}}">
+                    </td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td>Select Category</td>
+                    <td><select name="categoryid" value="{{clothing5}}">
+                        {%for cat in categories%}
+                        <option value="{{cat[0]}}">{{cat[1]}}</option>
+                        {%endfor%}
+                    </select></td>
+                
+                </tr>
+                <tr>
+                    <td>Quantity:</td>
+                    <td>
+                        <input type="number" name="quantity" value="{{clothing[7]}}">
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Edit Clothing Item"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

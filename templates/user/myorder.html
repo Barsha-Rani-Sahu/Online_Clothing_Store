@@ -1,0 +1,40 @@
+{%extends "user/homepage.html"%}
+{% block header %}
+{% endblock %}
+
+{% block slideshow %}
+{% endblock %}
+
+{%block content%}
+
+<center>
+    <table class="table" border="1">
+        
+        <tr>
+            <th>Order Id</th>
+            <th>Clothing Id</th>
+            <th>Clothing Name</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Date Of Order</th>
+            <th> Total Amount</th>
+        </tr>
+        {%for item in order_details%}
+            <tr>
+                <td>{{item[0]}}</td>
+                <td>{{item[4]}}</td>
+                <td>{{item[5]}}</td>
+                <td>{{item[6]}}</td>
+                <td><img src="{{ url_for('static', filename=item[7]) }}" style="height: 50px; width: 50px;"
+                        class="img-rounded"></td>
+               <td>{{item[8]}}</td>
+               <td>{{item[1]}}</td>
+               <td>{{item[2]}}</td>
+
+            </tr>
+        {%endfor%}
+         
+    </table>
+</center>
+{%endblock%}

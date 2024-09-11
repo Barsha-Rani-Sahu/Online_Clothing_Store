@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Category</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6794c4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #dce0e0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #6865b5;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <a href="/AdminHome"></a>
+        <form method="post">
+            <h2>ADD CATEGORY</h2>
+            <hr>
+            <table>
+                <tr>
+                    <td>Category ID:</td>
+                    <td><input type="text" name="CategoryID" value="{{category[0]}}" readonly></td>
+                </tr>
+                <tr>
+                    <td>Category Name:</td>
+                    <td><input type="text" name="CategoryName" value="{{category[1]}}" required></td>
+                </tr>
+                <tr>
+                    <td>Imgae:</td>
+                    <td>
+                        <input type="file" name="image" value="{{category[2]}}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" Value="Edit Category"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
