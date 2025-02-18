@@ -16,4 +16,4 @@ This is an online clothing store built using **Flask**, **HTML**, **CSS**, and *
 - **SQLite**: Lightweight database to store user, product, and order data.
 - **HTML/CSS/JavaScript**: For the frontend design and interactivity.
 - **Bootstrap**: Used for styling the frontend with responsive layout.
-- **Jinja2**: Templating engine to render HTML dynamically.
+  
