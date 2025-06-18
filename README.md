@@ -13,7 +13,7 @@ This is an online clothing store built using **Flask**, **HTML**, **CSS**, and *
 ## Technologies Used
 
 - **Flask**: Python web framework for backend development.
-- **SQLite**: Lightweight database to store user, product, and order data.
+- **SQL**: Lightweight database to store user, product, and order data.
 - **HTML/CSS/JavaScript**: For the frontend design and interactivity.
 - **Bootstrap**: Used for styling the frontend with responsive layout.
   
